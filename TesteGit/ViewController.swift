@@ -12,6 +12,21 @@ class ViewController: UIViewController , UIPickerViewDataSource, UIPickerViewDel
 
     @IBOutlet weak var statePicker: UIPickerView!
     @IBOutlet weak var statePickerBtn: UIButton!
+    @IBOutlet weak var countryLbl: UILabel!
+    @IBOutlet weak var countryField: UITextField!
+    @IBOutlet weak var buyNowBtn: UIButton!
+    @IBOutlet weak var successImg: UIImageView!
+    @IBOutlet weak var pillImg: UIImageView!
+    @IBOutlet weak var pillTitle: UILabel!
+    @IBOutlet weak var pillValue: UILabel!
+    @IBOutlet weak var addLbl: UILabel!
+    @IBOutlet weak var cityLbl: UILabel!
+    @IBOutlet weak var stateLbl: UILabel!
+    @IBOutlet weak var nameLbl: UILabel!
+    @IBOutlet weak var divider: UIView!
+    @IBOutlet weak var nameValue: UITextField!
+    @IBOutlet weak var cityValue: UITextField!
+    @IBOutlet weak var streetValue: UITextField!
     
     let states = ["Alaska","Alabama", "Arkansas", "California","New York"]
     override func viewDidLoad() {
@@ -28,6 +43,28 @@ class ViewController: UIViewController , UIPickerViewDataSource, UIPickerViewDel
 
     @IBAction func stateBtnPressed(_ sender: Any) {
         statePicker.isHidden = false
+        countryLbl.isHidden = true
+        countryField.isHidden = true
+        buyNowBtn.isHidden = true
+    }
+    @IBAction func buyPressed(_ sender: Any) {
+        successImg.isHidden = false
+        statePicker.isHidden = true
+        countryLbl.isHidden = true
+        countryField.isHidden = true
+        buyNowBtn.isHidden = true
+        statePickerBtn.isHidden = true
+        streetValue.isHidden = true
+        cityValue.isHidden = true
+        nameValue.isHidden = true
+        divider.isHidden = true
+        nameLbl.isHidden = true
+        stateLbl.isHidden = true
+        cityLbl.isHidden = true
+        addLbl.isHidden = true
+        pillValue.isHidden = true
+        pillTitle.isHidden = true
+        pillImg.isHidden = true
     }
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -43,6 +80,9 @@ class ViewController: UIViewController , UIPickerViewDataSource, UIPickerViewDel
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         statePickerBtn.setTitle(states[row], for: UIControlState.normal)
         statePicker.isHidden = true
+        countryLbl.isHidden = false
+        countryField.isHidden = false
+        buyNowBtn.isHidden = false
     }
 }
 
